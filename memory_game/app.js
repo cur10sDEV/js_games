@@ -44,7 +44,6 @@ function flipCard() {
 }
 
 function checkMatch() {
-	console.log(cardsChosen);
 	const cards = document.querySelectorAll("#grid img");
 	const firstCardId = cardsChosen[0].id;
 	const secondCardId = cardsChosen[1].id;
@@ -59,7 +58,7 @@ function checkMatch() {
 		alert("You found a match!");
 		cards[firstCardId].setAttribute("src", "images/white.png");
 		cards[secondCardId].setAttribute("src", "images/white.png");
-		cards[firstCardId].removeEventListener("click", () => flipCard);
+		cards[firstCardId].removeEventListener("click", flipCard);
 		cards[secondCardId].removeEventListener("click", flipCard);
 		cardsWon.push(cardsChosen);
 		if (cardsWon.length === Math.floor(cardArray.length / 2)) {
@@ -72,5 +71,4 @@ function checkMatch() {
 	}
 	cardsChosen = [];
 	result.innerHTML = cardsWon.length;
-	console.log("checked");
 }
